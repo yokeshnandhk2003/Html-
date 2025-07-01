@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Account</title>
+</head>
+<body>
+  <h1>Create Account</h1>
+  <form action="/submit" method="post">
+    <table>
+      <tr>
+        <td>
+          <label for="firstname" style="color: aqua;">First Name*</label><br>
+          <input type="text" name="firstname" id="firstname" required placeholder="Enter your First Name">
+        </td>
+        <td>
+          <label for="lastname" style="color: aqua;">Last Name*</label><br>
+          <input type="text" name="lastname" id="lastname" required placeholder="Enter your Last Name">
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <label for="email" style="color: aqua;">Email*</label><br>
+          <input type="email" name="email" id="email" required placeholder="Enter your Email">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="password" style="color: aqua;">Password*</label><br>
+          <input type="password" name="password" id="password" required placeholder="Enter your password">
+        </td>
+        <td>
+          <label for="confirm_password" style="color: aqua;">Confirm Password*</label><br>
+          <input type="password" name="confirm_password" id="confirm_password" required placeholder="Confirm your password">
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <p><strong style="color: aqua;">Gender:</strong></p>
+          <input type="radio" id="male" name="gender" value="Male">
+          <label for="male">Male</label>
+          <input type="radio" id="female" name="gender" value="Female">
+          <label for="female">Female</label>
+          <input type="radio" id="other" name="gender" value="Other">
+          <label for="other">Other</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <p><strong style="color: aqua;">Hobbies:</strong></p>
+          <input type="checkbox" id="reading" name="hobbies[]" value="Reading">
+          <label for="reading">Reading</label>
+          <input type="checkbox" id="sports" name="hobbies[]" value="Sports">
+          <label for="sports">Sports</label>
+          <input type="checkbox" id="travel" name="hobbies[]" value="Travel">
+          <label for="travel">Travel</label>
+          <input type="checkbox" id="music" name="hobbies[]" value="Music">
+          <label for="music">Music</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="income-source" style="color: aqua;">Source of Income</label><br>
+          <select name="income_source" id="income-source" required>
+            <option value="">--Select--</option>
+            <option value="job">Job</option>
+            <option value="employed">Employed</option>
+            <option value="business">Business</option>
+          </select>
+        </td>
+        <td>
+          <label for="income" style="color: aqua;">Income: ₹<span id="income-value">10000</span></label><br>
+          <input type="range" id="income" name="income" min="0" max="20000" value="10000">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="upload" style="color: aqua;">Upload Profile Picture</label><br>
+          <input type="file" name="profile_picture" id="upload">
+        </td>
+        <td>
+          <label for="age" style="color: aqua;">Age</label><br>
+          <input type="number" name="age" id="age" min="1" max="100">
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <label for="bio" style="color: aqua;">Bio</label><br>
+          <textarea name="bio" id="bio" rows="4" cols="50" placeholder="Tell us about yourself..."></textarea>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <br>
+          <button type="submit" style="color: aqua;">Create Account</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <script>
+    // Income slider value live update
+    const slider = document.getElementById("income");
+    const output = document.getElementById("income-value");
+
+    slider.addEventListener("input", function () {
+      output.textContent = slider.value;
+    });
+  </script>
+</body>
+</html>
